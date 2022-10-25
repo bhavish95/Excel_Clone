@@ -1,0 +1,8 @@
+await Excel.run(async (context) => {
+    let sheet = context.workbook.worksheets.getItem("Sample");
+    let cell = sheet.getCell(1, 4);
+    cell.load("address, values");
+
+    await context.sync();
+    console.log(`The value of the cell in row 2, column 5 is "${cell.values[0][0]}" and the address of that cell is "${cell.address}"`);
+});
